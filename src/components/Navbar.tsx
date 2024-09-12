@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 import { GradientBorderNavbar } from './gradient-border-navbar'
 
-const Navbar = () => {
+interface NavbarProps {
+  bgVariant: string;
+  setBgVarient: Dispatch<SetStateAction<string>>;
+}
+
+const Navbar = ({bgVariant,setBgVarient}: NavbarProps) => {
   return (
     <div>
-      <GradientBorderNavbar/>
+      <GradientBorderNavbar bgVariant={bgVariant} setBgVarient={setBgVarient}/>
     </div>
   )
 }
