@@ -1,7 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   Tooltip,
   TooltipContent,
@@ -9,15 +7,15 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Github, Twitter, Mail, ExternalLink } from "lucide-react";
-import Image from "next/image";
+
 import Link from "next/link";
-import { IconProps } from "./Icon";
+
 
 export function FooterComponent() {
   return (
     <footer className="bg-three ">
       <div className="container px-4 py-12 mx-auto">
-        <div className="">
+        <div className="flex flex-col justify-center items-center">
         <h3 className="mb-4 text-xl font-semibold">Aspirant OP</h3>
             <p className="text-sm text-muted-foreground">
               A passionate web developer crafting beautiful and functional
@@ -25,9 +23,9 @@ export function FooterComponent() {
             </p>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-between pt-8 mt-8 border-t border-gray-700 sm:flex-row mx-24">
+        <div className="flex flex-col items-center justify-between pt-8 mt-8 py-10 border-t border-gray-700 sm:flex-row mx-24">
           <TooltipProvider>
-            <div className="flex mt-4 space-x-4 sm:mt-0 gap-7">
+            <div className="flex mt-4 space-x-4 sm:mt-0 gap-7 text-textColor">
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
@@ -36,10 +34,7 @@ export function FooterComponent() {
                   >
                     <span className="sr-only">GitHub</span>
                     <Github className="w-10 h-10 text-iconColor" />
-                    <div
-                      className="tooltip-arrow bg-iconColor"
-                      data-popper-arrow
-                    ></div>
+                    
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent
@@ -153,7 +148,7 @@ export function FooterComponent() {
             </div>
           </TooltipProvider>
           <p className="text-sm text-muted-foreground">
-            © 2023 Aspirant OP. All rights reserved.
+           {"<>"} © 2024 Aspirant OP. {"</>"}
           </p>
         </div>
 

@@ -13,9 +13,10 @@ const config: Config = {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
 			three: "#1E1E2E",
-			trxtColor: "#CAA6F7",
+			textColor: "#CAA6F7",
 			four: "#B3B3C3",
 			iconColor: "#FFBE6F",
+			blueColor:"#06B6D4",
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
@@ -44,7 +45,7 @@ const config: Config = {
   				DEFAULT: 'hsl(var(--destructive))',
   				foreground: 'hsl(var(--destructive-foreground))'
   			},
-  			border: 'hsl(var(--border))',
+  			
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
   			chart: {

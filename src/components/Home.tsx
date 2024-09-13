@@ -5,8 +5,9 @@
 // const TwitterIcon = dynamic(() => import("@mui/icons-material/Twitter"), { ssr: false });
 // const InstagramIcon = dynamic(() => import("@mui/icons-material/Instagram"), { ssr: false });
 // import Link from "next/link";
+import EmailComponent from './EmailComponent';
 import { DockDemo } from './Icon';
-import { IconCloudDemo } from './IconCld';
+
 // import { Icon } from "./Icons";
 
 interface HomeProps {
@@ -38,10 +39,10 @@ const Home: React.FC<HomeProps> = ({ setBgVariant, setCursorText }) => {
           >
             Sushil Here!
           </div>
-          <div className="text-[#CAA6F7] text-center text-[30px] font-bold ml-[40px] mt-6 ">
+          <div className="text-[#CAA6F7] text-center text-[30px] font-bold ml-[40px] mt-2 ">
             Full Stack Devloper | Open source
           </div>
-          <div className="text-[#CAA6F7] text-center text-[30px] font-bold ml-[60px] w-[600px]  p-8">
+          <div className="text-[#CAA6F7] text-center text-[30px] font-bold ml-[60px] w-[600px]  p-6">
             Feel free to tweak it to match your style!
           </div>
           {/* <div className="flex  bg-slate-900 p-4 rounded-full gap-12">
@@ -84,6 +85,7 @@ const Home: React.FC<HomeProps> = ({ setBgVariant, setCursorText }) => {
             </div>
           </div> */}
           <DockDemo />
+          <EmailComponent/>
         </div>
         <div className="text-white text-center h-full w-1/2 text-2xl font-bold flex justify-center items-center">
        {/* <IconCloudDemo/> */}
