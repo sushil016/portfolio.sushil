@@ -8,7 +8,7 @@ interface NavbarProps {
 
 const Navbar = ({bgVariant,setBgVarient}: NavbarProps) => {
   return (
-    <div>
+    <div className="">
       <GradientBorderNavbar bgVariant={bgVariant} setBgVarient={setBgVarient}/>
     </div>
   )

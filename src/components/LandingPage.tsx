@@ -80,5 +80,3 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
-
-// className="cursor-none z-10 h-[40px] w-[40px] rounded-full border-2 border-orange-600 fixed top-0 left-0 pointer-events-none justify-center items-center"
