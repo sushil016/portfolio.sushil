@@ -12,6 +12,10 @@ const config: Config = {
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
+			three: "#1E1E2E",
+			trxtColor: "#CAA6F7",
+			four: "#B3B3C3",
+			iconColor: "#FFBE6F",
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'

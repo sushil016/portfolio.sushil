@@ -1,8 +1,13 @@
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import Link from "next/link";
+
+// import dynamic from 'next/dynamic';
+// const GitHubIcon = dynamic(() => import("@mui/icons-material/GitHub"), { ssr: false });
+// const LinkedInIcon = dynamic(() => import("@mui/icons-material/LinkedIn"), { ssr: false });
+// const TwitterIcon = dynamic(() => import("@mui/icons-material/Twitter"), { ssr: false });
+// const InstagramIcon = dynamic(() => import("@mui/icons-material/Instagram"), { ssr: false });
+// import Link from "next/link";
+import { DockDemo } from './Icon';
+import { IconCloudDemo } from './IconCld';
+// import { Icon } from "./Icons";
 
 interface HomeProps {
   bgVariant: string;
@@ -39,7 +44,7 @@ const Home: React.FC<HomeProps> = ({ setBgVariant, setCursorText }) => {
           <div className="text-[#CAA6F7] text-center text-[30px] font-bold ml-[60px] w-[600px]  p-8">
             Feel free to tweak it to match your style!
           </div>
-          <div className="flex  bg-slate-900 p-4 rounded-full gap-12">
+          {/* <div className="flex  bg-slate-900 p-4 rounded-full gap-12">
             <div>
               <Link
                 data-popover-target="popover-default"
@@ -77,18 +82,14 @@ const Home: React.FC<HomeProps> = ({ setBgVariant, setCursorText }) => {
                 <InstagramIcon />
               </Link>
             </div>
-          </div>
+          </div> */}
+          <DockDemo />
         </div>
-        <div className="text-white text-center h-full w-1/2 text-2xl font-bold flex justify-center items-center bg-slate-800">
-          3D artist here
+        <div className="text-white text-center h-full w-1/2 text-2xl font-bold flex justify-center items-center">
+       {/* <IconCloudDemo/> */}
         </div>
       </div>
       <div className="bg-[#353576] h-screen w-full ">
-        {/* <div className="flex w-[200px] h-[200px] justify-center items-center relative">
-          <div className="w-[110%] h-[110%] shadow-lg shadow-pink-500 bg-transparent rounded-full absolute"></div>
-          <div className="w-[108%] h-[108%] shadow-lg shadow-violet-500 bg-transparent rounded-full absolute rotate-90"></div>
-          <div className="w-[106%] h-[106%] shadow-lg shadow-cyan-500 bg-transparent rounded-full absolute rotate-180"></div>
-        </div> */}
       </div>
     </>
   );

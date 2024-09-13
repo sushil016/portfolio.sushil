@@ -3,9 +3,10 @@ import React from "react";
 import Navbar from "./Navbar";
 import Home from "./Home";
 import { motion } from "framer-motion";
-
 import { useState } from "react";
 import useMousePosition from "@/app/utils/mouseposition";
+import { FooterComponent } from "./footer";
+
 
 const LandingPage = () => {
   const { x, y } = useMousePosition();
@@ -73,6 +74,7 @@ const LandingPage = () => {
         cursorText={cursorText}
         setCursorText={setCursorText}
       />
+      <FooterComponent/>
     </>
   );
 };
