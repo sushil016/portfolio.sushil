@@ -5,6 +5,16 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --gradient: conic-gradient(
+    from 90deg at 50% 50%,
+    rgb(251, 55, 60),
+    rgba(252, 114, 28, 1),
+    rgba(255, 220, 0, 1),
+    rgba(27, 206, 255, 1),
+    rgba(42, 107, 255, 1),
+    rgba(217, 41, 255, 1),
+    rgba(255, 10, 92, 1)
+  );
 }
 
 @media (prefers-color-scheme: dark) {
@@ -151,6 +161,29 @@ body {
   }
 }
 
-.border{
-  border: 1px solid gray;
+.borderone{
+
+
+  --start: 0;
+  border-radius:1px;
+  border-radius:20px;
+  border:1px solid rgba(82, 20, 97, 0.858);
+  transition: border-color 0.3s ease-in-out;
+}
+
+.border::before {
+ 
+  border: 1px solid transparent;
+
+  mask: linear-gradient(#0000, #0000), conic-gradient(from calc((
+              var(--start) - (20 * 1.1)
+            ) * 1deg), #ffffff1f 0deg, white, #ffffff00 100deg);
+  mask-composite: intersect;
+  mask-clip: padding-box, border-box;
+  opacity: 0;
+  transition: 0.5s ease;
+}
+
+.borderneutral{
+  border: 1px solid #CAA6F7
 }

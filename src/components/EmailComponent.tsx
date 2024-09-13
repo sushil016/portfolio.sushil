@@ -5,7 +5,7 @@ import React from "react";
 const EmailComponent = () => {
   return (
     <>
-      <div className="flex bg-three w-[320px] h-[70px] mt-10 border rounded-2xl">
+      <div className="flex bg-three w-[320px] h-[70px] mt-10 borderneutral rounded-2xl">
         <div className="w-8 h-full bg-blueColor overflow-hidden rounded-l-2xl"></div>
         <div className="flex justify-center w-full items-center gap-3">
         <div className="text-neutral-300 hover:text-neutral-400 transition-colors duration-200"> 
