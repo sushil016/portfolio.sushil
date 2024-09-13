@@ -150,3 +150,7 @@ body {
     transform: scale(1);
   }
 }
+
+.border{
+  border: 1px solid gray;
+}

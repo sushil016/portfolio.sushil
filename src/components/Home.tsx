@@ -7,6 +7,7 @@
 // import Link from "next/link";
 import EmailComponent from './EmailComponent';
 import { DockDemo } from './Icon';
+import { ThreeDCardDemo } from './profile';
 
 // import { Icon } from "./Icons";
 
@@ -89,6 +90,7 @@ const Home: React.FC<HomeProps> = ({ setBgVariant, setCursorText }) => {
         </div>
         <div className="text-white text-center h-full w-1/2 text-2xl font-bold flex justify-center items-center">
        {/* <IconCloudDemo/> */}
+       <ThreeDCardDemo/>
         </div>
       </div>
       <div className="bg-[#353576] h-screen w-full ">
