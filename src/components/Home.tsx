@@ -23,30 +23,30 @@ const Home: React.FC<HomeProps> = ({ setBgVariant, setCursorText }) => {
 
   return (
     <>
-      <div className="bg-[#1E1E2E] h-screen w-full flex">
-        <div className="w-1/2 h-screen flex justify-center items-center flex-col">
+      <div className="bg-[#1E1E2E] w-full  flex flex-col md:flex-row">
+        <div className="md:w-1/2 h-screen flex justify-center items-center flex-col">
           <div
             onMouseEnter={textEnter}
             onMouseLeave={textOut}
-            className="text-[#B2DBF2] text-center text-[80px] font-bold pointer-events "
+            className="text-[#B2DBF2] text-left md:text-[80px] text-[50px] font-bold pointer-events "
           >
             Sushil Here!
           </div>
-          <div className="text-[#CAA6F7] text-center text-[30px] font-bold ml-[40px] mt-2 ">
+          <div className="text-[#CAA6F7] text-center md:text-[30px] text-[20px] font-bold md:ml-[40px] md:mt-2 ">
             Full Stack Devloper | Open source
           </div>
-          <div className="text-[#CAA6F7] text-center text-[30px] font-bold ml-[60px] w-[600px]  p-6">
+          <div className="text-[#CAA6F7] text-center md:text-[30px] text-[20px] font-bold md:ml-[60px] w-[600px] ">
             Feel free to tweak it to match your style!
           </div>
           <DockDemo />
           <EmailComponent />
         </div>
-        <div className="h-full w-1/2 flex justify-center items-center">
+        <div className="h-full md:w-1/2 flex justify-center items-center">
           <ThreeDCardDemo />
         </div>
       </div>
       <AboutMe />
-      <div className="bg-three h-screen w-full "></div>
+      <div className="bg-zinc-600 h-[100vh] width=device-width"></div>
     </>
   );
 };

@@ -17,7 +17,7 @@ export function FooterComponent() {
       <div className="container px-4 py-12 mx-auto">
         <div className="flex flex-col justify-center items-center">
         <h3 className="mb-4 text-xl font-semibold">Aspirant OP</h3>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground text-center">
               A passionate web developer crafting beautiful and functional
               websites. Always learning, always creating.
             </p>
@@ -126,7 +126,7 @@ export function FooterComponent() {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
-                    href="mailto:johndoe@example.com"
+                    href="sahanisushil325@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors duration-200"
                   >
                     <span className="sr-only">Email</span>
@@ -147,7 +147,7 @@ export function FooterComponent() {
               </Tooltip>
             </div>
           </TooltipProvider>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground mt-6">
            {"<>"} © 2024 Aspirant OP. {"</>"}
           </p>
         </div>
