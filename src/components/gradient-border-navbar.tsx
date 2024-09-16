@@ -26,11 +26,10 @@ export function GradientBorderNavbar(props:props) {
   props.setBgVarient("default")
  }
 
-
   return (
-    <nav className="fixed top-0 w-full h-[70px] p-4 backdrop-blur-sm drop-shadow-lg">
-      <div className="max-w-6xl mx-auto drop-shadow-lg">
-        <ul className="flex justify-center items-center space-x-4 sm:space-x-8 ">
+    <nav className="fixed top-0 md:w-full h-[60px] bg-green-600 backdrop-blur-sm drop-shadow-lg w-full">
+      <div className="">
+        <ul className="flex justify-center items-center md:space-x-8 sm:space-x-6 ">
           {navItems.map((item) => (
             <motion.li key={item.name} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} 
             >
@@ -38,7 +37,7 @@ export function GradientBorderNavbar(props:props) {
                 <span 
                 onMouseEnter={NavEnter}
                 onMouseLeave={NavOut}
-                 className="relative px-4 py-2  text-[#CAA6F7] text-sm sm:text-lg font-medium cursor-pointer transition-all duration-300 rounded-full group hover:border  ease-in-out bg-b-gradient-to-r from-pink-500 via-purple-500 to-blue-500">
+                 className="relative px-3 py-2  text-[#CAA6F7] text-sm sm:text-lg font-medium cursor-pointer transition-all duration-300 rounded-full group hover:border  ease-in-out bg-b-gradient-to-r from-pink-500 via-purple-500 to-blue-500">
                 {item.name}
                 </span>
               </Link>

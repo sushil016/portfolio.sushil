@@ -23,7 +23,7 @@ const Home: React.FC<HomeProps> = ({ setBgVariant, setCursorText }) => {
 
   return (
     <>
-      <div className="bg-[#1E1E2E] w-full  flex flex-col md:flex-row">
+      <div className="bg-[#1E1E2E] w-full flex flex-col md:flex-row">
         <div className="md:w-1/2 h-screen flex justify-center items-center flex-col">
           <div
             onMouseEnter={textEnter}
@@ -32,10 +32,10 @@ const Home: React.FC<HomeProps> = ({ setBgVariant, setCursorText }) => {
           >
             Sushil Here!
           </div>
-          <div className="text-[#CAA6F7] text-center md:text-[30px] text-[20px] font-bold md:ml-[40px] md:mt-2 ">
+          <div className="text-[#CAA6F7] text-center md:text-[30px] text-[20px] font-bold md:ml-[40px] md:mt-2">
             Full Stack Devloper | Open source
           </div>
-          <div className="text-[#CAA6F7] text-center md:text-[30px] text-[20px] font-bold md:ml-[60px] w-[600px] ">
+          <div className="text-[#CAA6F7] text-center md:text-[30px] mt-4 text-[20px] font-bold md:ml-[60px] md:w-[600px] p-2">
             Feel free to tweak it to match your style!
           </div>
           <DockDemo />
