@@ -23,9 +23,9 @@ export function FooterComponent() {
             </p>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-between pt-8 mt-8 py-10 border-t border-gray-700 sm:flex-row mx-24">
+        <div className="flex flex-col items-center justify-between pt-8 mt-3 py-10 border-t border-gray-700 sm:flex-row mx-24">
           <TooltipProvider>
-            <div className="flex mt-4 space-x-4 sm:mt-0 gap-7 text-textColor">
+            <div className="flex mt-2 space-x-4 sm:mt-0 gap-7 text-textColor">
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
@@ -116,7 +116,7 @@ export function FooterComponent() {
                   className="bg-iconColor px-3 py-2 text-xs font-medium rounded-full shadow-lg border-none TooltipContent"
                 >
                   <div className="flex items-center space-x-2 text-zinc-950">
-                    {/* <Linkedin className="w-4 h-4" /> */}
+                    
                     <p>connect to sushilz16</p>
                     <ExternalLink className="w-3 h-3" />
                   </div>
@@ -138,7 +138,6 @@ export function FooterComponent() {
                   className="bg-iconColor px-3 py-2 text-xs font-medium rounded-full shadow-lg border-none TooltipContent"
                 >
                   <div className="flex items-center space-x-2 text-zinc-950 ">
-                    {/* <Mail className="w-4 h-4" /> */}
                     <p>Send me an email</p>
                     <ExternalLink className="w-3 h-3" />
                   </div>
@@ -147,8 +146,8 @@ export function FooterComponent() {
               </Tooltip>
             </div>
           </TooltipProvider>
-          <p className="text-sm text-muted-foreground mt-6">
-           {"<>"} © 2024 Aspirant OP. {"</>"}
+          <p className="text-[12px] sm:text-sm text-muted-foreground py-5">
+           {"< "} © 2024 Aspirant OP. {" />"}
           </p>
         </div>
 

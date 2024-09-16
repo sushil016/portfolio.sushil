@@ -2,6 +2,7 @@ import AboutMe from "./AboutMe";
 import EmailComponent from "./EmailComponent";
 import { DockDemo } from "./Icon";
 import { ThreeDCardDemo } from "./profile";
+import Skills from "./Skills";
 
 interface HomeProps {
   bgVariant: string;
@@ -24,7 +25,7 @@ const Home: React.FC<HomeProps> = ({ setBgVariant, setCursorText }) => {
   return (
     <>
       <div className="bg-[#1E1E2E] w-full flex flex-col md:flex-row">
-        <div className="md:w-1/2 h-screen flex justify-center items-center flex-col">
+        <div className="md:w-1/2 sm:h-full flex justify-center items-center flex-col mt-20">
           <div
             onMouseEnter={textEnter}
             onMouseLeave={textOut}
@@ -46,7 +47,9 @@ const Home: React.FC<HomeProps> = ({ setBgVariant, setCursorText }) => {
         </div>
       </div>
       <AboutMe />
-      <div className="bg-zinc-600 h-[100vh] width=device-width"></div>
+      <div className="bg-three h-auto ">
+        <Skills />
+      </div>
     </>
   );
 };

@@ -1,21 +1,30 @@
+
 export const data = {
     skills: [
         {
             name: "JavaScript",
-            image: "/assets/images/anime.png", 
+            image: "", 
         },
         {
             name: "TypeScript",
-            image: "/assets/images/anime.png",
+            image: "",
         },
         {
             name: "Python",
-            image: "/assets/images/anime.png",
+            image: "",
         },
         {
             name: "C/C++",
-            image: "/assets/images/anime.png",
+            image: "",
         },{
+            name: "Rust",
+            image: "",
+        },
+        {
+            name: "solidity",
+            image: "/assets/images/anime.png",
+        },
+        {
             name: "Docker",
             image: "/assets/images/anime.png",
         },{
@@ -34,19 +43,19 @@ export const data = {
             image: "/assets/images/anime.png",
         },
         {
-            name: "Docker",
+            name: "Redis",
             image: "/assets/images/anime.png",
         },
         {
-            name: "Kubernetes",
+            name: "MongoDB",
             image: "/assets/images/anime.png",
         },
         {
-            name: "AWS",
+            name: "Cloudflare",
             image: "/assets/images/anime.png",
         },
         {
-            name: "CI/CD",
+            name: "WebRTC",
             image: "/assets/images/anime.png",
         },
         {
@@ -54,11 +63,9 @@ export const data = {
             image: "/assets/images/anime.png",
         },
         {
-            name: "CI/CD",
+            name: "ROS",
             image: "/assets/images/anime.png",
         },
-        {
-            
-        }
+        
     ],
 };

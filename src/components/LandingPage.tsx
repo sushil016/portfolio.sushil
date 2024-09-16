@@ -60,7 +60,7 @@ const LandingPage = () => {
           variants={variants}
           transition={spring}
           animate={bgVariant}
-          className="cursor-none z-10 h-[40px] w-[40px] rounded-full border-2 border-orange-600 fixed top-0 left-0 pointer-events-none justify-center items-center shadow-lg shadow-violet-500"
+          className="cursor-none z-50 h-[40px] w-[40px] rounded-full border-2 border-orange-600 fixed top-0 left-0 pointer-events-none justify-center items-center shadow-lg shadow-violet-500"
         > 
           <span className="text-white m-auto font-size-inherit flex justify-center items-center mt-9">
             {cursorText}
@@ -69,6 +69,7 @@ const LandingPage = () => {
       </div>
       <Navbar bgVariant={bgVariant} setBgVarient={setBgVariant} />
       <Home
+        
         bgVariant={bgVariant}
         setBgVariant={setBgVariant}
         cursorText={cursorText}
