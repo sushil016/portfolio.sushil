@@ -17,18 +17,18 @@ export function DockDemo() {
           </Link>
         </DockIcon>
         <DockIcon className="bg-black/10 dark:bg-white/10 p-3">
-          <Link href="https://github.com/sushil016">
+          <Link href="https://www.linkedin.com/in/sushil-sahani-46235527b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app ">
             <Icons.linkedin className="size-full" />
           </Link>
         </DockIcon>
         <DockIcon className="bg-black/10 dark:bg-white/10 p-3">
-          <Link href="https://github.com/sushil016">
+          <Link href="https://x.com/Sushil_Sahani37?t=Vf7WhfLqM3D2ZTb46HTtTw&s=09">
             {" "}
             <Icons.Twitter className="size-full" />
           </Link>
         </DockIcon>
         <DockIcon className="bg-black/10 dark:bg-white/10 p-3">
-          <Link href="https://github.com/sushil016">
+          <Link href="https://www.instagram.com/sushil__16?igsh=MW52cTl1ZTlvODk1dw==">
             {" "}
             <Icons.Instagram className="size-full" />
           </Link>

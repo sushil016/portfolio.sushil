@@ -53,7 +53,7 @@ export function FooterComponent() {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
-                    href="https://twitter.com"
+                    href="https://x.com/Sushil_Sahani37?t=Vf7WhfLqM3D2ZTb46HTtTw&s=09"
                     className="text-muted-foreground hover:text-primary transition-colors duration-200"
                   >
                     <span className="sr-only">Twitter</span>
@@ -75,7 +75,7 @@ export function FooterComponent() {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
-                    href="https://linkedin.com"
+                    href="https://discord.com"
                     className="text-muted-foreground hover:text-primary transition-colors duration-200"
                   >
                     <span className="sr-only">Discord</span>

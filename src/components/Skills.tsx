@@ -1,8 +1,7 @@
 import React from 'react'
-import { data } from '../../data/data'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Svg } from './ui/svg'
+import { data } from '@/data/data'
 
 const Skills = () => {
   return (

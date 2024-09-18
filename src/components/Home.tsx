@@ -2,6 +2,7 @@ import AboutMe from "./AboutMe";
 import EmailComponent from "./EmailComponent";
 import { DockDemo } from "./Icon";
 import { ThreeDCardDemo } from "./profile";
+import Project from "./Project";
 import Skills from "./Skills";
 
 interface HomeProps {
@@ -50,6 +51,7 @@ const Home: React.FC<HomeProps> = ({ setBgVariant, setCursorText }) => {
       <div className="bg-three h-auto ">
         <Skills />
       </div>
+      <Project />
     </>
   );
 };
