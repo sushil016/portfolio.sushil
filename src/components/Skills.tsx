@@ -2,6 +2,9 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Svg } from './ui/svg'
 import { data } from '@/data/data'
+import Image from 'next/image'
+
+
 
 const Skills = () => {
   return (
@@ -11,10 +14,10 @@ const Skills = () => {
         
             {data.skills.map((skill) => (
                 <motion.li 
-                className='border p-2 rounded-md w-40 h-15 text-white flex justify-start items-center gap-2 pl-4 duration-200 '
-                key={skill.name} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.90 }} >
-                    <Svg />
-                    {/* <Image className='w-10 h-10 rounded-full bg-white' src={skill.image} alt={skill.name} width={50} height={50} /> */}
+                className='border shadow-xl p-2 rounded-md w-40 h-15 text-white flex justify-start items-center gap-2 pl-4 duration-200 '
+                key={skill.name} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.75 }} >
+                    {/* <Svg /> */}
+                    <Image src={skill.image} alt={skill.name} width={35} height={35} />
                     <span className='text-textColor'>{skill.name}</span>
                 </motion.li>
             ))}

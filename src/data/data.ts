@@ -1,13 +1,16 @@
+import Ts from "../components/svgs/ts.svg";
+import Js from "../components/svgs/js.svg";
+import Next from "../components/svgs/nextjs.svg";
 
 export const data = {
     skills: [
         {
             name: "JavaScript",
-            image: "", 
+            image: Js, 
         },
         {
             name: "TypeScript",
-            image: "",
+            image: Ts,
         },
         {
             name: "Python",
@@ -23,6 +26,33 @@ export const data = {
         {
             name: "solidity",
             image: "/assets/images/anime.png",
+        },
+        {
+            name: "Next.js",
+            image: Next,
+        },
+        {
+            name: "React.js",
+            image: "",
+        },{
+            name: "Express.js",
+            image: "",
+        },
+        {
+            name: "Node.js",
+            image: "",
+        },
+        {
+            name: "Tailwind",
+            image: "",
+        },
+        {
+            name: "GSAP",
+            image: "",
+        },
+        {
+            name: "Framer Motion",
+            image: "",
         },
         {
             name: "Docker",
