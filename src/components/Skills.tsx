@@ -9,7 +9,7 @@ import Image from 'next/image'
 const Skills = () => {
   return (
     <main className=' w-full h-full py-8 bg-three'>
-        <div className='text-iconColor text-center text-3xl font-bold'>{"< "}Code : Skills {"/>"} </div>
+        <div className='text-iconColor text-center text-4xl font-bold'>{"< "}Code : Skills {"/>"} </div>
         <div className=' gap-4 py-8 items-center grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 flex-wrap justify-center md:pl-28 '>
         
             {data.skills.map((skill) => (

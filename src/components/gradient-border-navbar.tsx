@@ -35,8 +35,8 @@ export function GradientBorderNavbar(props:props) {
             >
               <Link href={item.href}>
                 <span 
-                onMouseEnter={NavEnter}
-                onMouseLeave={NavOut}
+                // onMouseEnter={NavEnter}
+                // onMouseLeave={NavOut}
                  className="relative md:px-3 md:py-2 px-2 py-1 text-[#CAA6F7] text-sm sm:text-lg font-medium cursor-pointer transition-all duration-300 rounded-full group hover:border  ease-in-out bg-b-gradient-to-r from-pink-500 via-purple-500 to-blue-500">
                 {item.name}
                 </span>

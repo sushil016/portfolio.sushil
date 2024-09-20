@@ -5,25 +5,33 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import Tilt from "react-parallax-tilt"
 import { Code, Palette, Globe } from "lucide-react"
 import  Anime  from "./svgs/icons8-anime-600.svg"
+import { SvgTwo } from "./ui/Svgtwo"
 
 
 const projects = [
   {
     id: 1,
     name: "Aspirant OP",
-    title: "NoteWrite , An Ed-tech Website",
-    description: "A cutting-edge web application for students to learn and grow",
-    tech: "Next.js , TailwindCSS , MongoDB , Node.js , Express.js",
+    title: "NoteWrite : An Ed-tech Website",
+    description: "Developed a comprehensive ed-tech platform using the MERN (MongoDB, Express.js, React, Node.js) stack.",
+    description2: "The website features interactive course modules, real-time progress tracking, and a user-friendly dashboard for both students and instructors.",
+    description3: " Implemented secure user authentication, integrated payment gateway for course purchases, and optimized performance for seamless learning experiences across devices.",
+    description4: "This project is still in development....!",
+    tech: "JavaScript , TypeScript , Next.js , TailwindCSS , MongoDB , Node.js , Express.js , JWT , Docker",
     image: Anime,
     category: "web",
     color: "#1E1E2E",
+   
   },
   {
     id: 2,
     name: "Aspirant OP",
     title: "Live loction staying app",
-    description: "An innovative mobile app for students to stay in touch with their friends and family",
-    tech: "Next.js , TailwindCSS , MongoDB , Node.js , Express.js",
+    description: "Created a mobile application using React Native for precise location tracking of employees during work hours",
+    description2: " Implemented a geofencing system to verify user presence within a specified office radius.",
+    description3: " Developed a scalable backend with Node.js and Express.js, utilizing PostgreSQL for efficient data management",
+    description4: "Integrated real-time location updates, custom notification systems, and secure authentication to ensure accurate attendance tracking and enhance workforce management.",  
+    tech: "React Native , TypeScript , Expo , TailwindCSS , PosrgreSQL, Node.js , Express.js",
     image: "",
     category: "mobile",
     color: "#1E1E2E",
@@ -32,18 +40,23 @@ const projects = [
     id: 3,
     name: "Aspirant OP",
     title: "Paytm Clone",
-    description: `A Paytm Clone with all the features of the original Paytm , made with Next.js and TailwindCSS
-    Learned a lot of new things while making this project , like how to make payment page and how to use Razorpay API`,
-    tech: "Next.js , TailwindCSS , MongoDB , Node.js , Express.js",
+    description: `Developed a simplified Paytm clone, replicating core functionalities of the popular digital payment platform`,
+    description2: `Utilized React for the frontend, ensuring a responsive and user-friendly interface, and integrated secure payment gateways for transactions`,
+    description3: `Implemented features like wallet management, transaction history, and user authentication to enhance user experience and security`,
+    description4: `This project is still in development....!`,
+    tech: "JavaScript , TypeScript , React.js , TailwindCSS , MongoDB , Node.js , Express.js , JWT , Docker",
     image: "",
     category: "web",
     color: "#1E1E2E",
   },{
     id: 4,
     name: "Aspirant OP",
-    title: "portfolio website",
-    description: "A sleek Animated portfolio website",
-    tech: "Next.js , TailwindCSS , MongoDB , Node.js , Express.js",
+    title: "sushil.tech : Portfolio Website",
+    description: "Designed and developed a dynamic, responsive portfolio website using Next.js, showcasing proficiency in modern React frameworks.",
+    description2: "Implemented a sleek, intuitive user interface with smooth animations and a custom-built 3D Cards for enhanced user engagement.",
+    description3: "Integrated a contact form with server-side validation and demonstrated project showcases with dynamic routing and rich media integration.",
+    description4: "Waiting for the feedback....! || What is anime overcooking me in my code , just kidding",
+    tech: "TypeScript , Next.js , TailwindCSS , Framer motion , GSAP ",
     image: "",
     category: "web",
     color: "#1E1E2E",
@@ -52,7 +65,7 @@ const projects = [
   
 ]
 
-const CategoryIcon = ({ category }) => {
+const CategoryIcon = ({ category }: { category: string }) => {
   switch (category) {
     case "web":
       return <Globe className="w-6 h-6" />
@@ -65,7 +78,7 @@ const CategoryIcon = ({ category }) => {
   }
 }
 
-const ProjectCard = ({ project, index }) => {
+const ProjectCard = ({ project }: { project: any }) => {
   const cardRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: cardRef,
@@ -98,7 +111,7 @@ const ProjectCard = ({ project, index }) => {
              // rotateX: rotate,
             opacity
         }}
-        whileHover={{ y: -10, boxShadow: "0 20px 30px rgba(0,0,0,0.2)" }}
+        whileHover={{ y: -5, boxShadow: "0 20px 30px rgba(0,0,0,0.2)" }}
       >
         <motion.div
           className="absolute inset-0 bg-black opacity-40"
@@ -106,31 +119,42 @@ const ProjectCard = ({ project, index }) => {
           whileHover={{ opacity: 0.2 }}
           transition={{ duration: 0.3 }}
         />
-        <div>
+        <div className=" w-full min-h-96">
         <motion.div
-          className="w-full h-48 object-cover text-textColor font-bold text-xs"
+          className="w-full object-cover "
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
         />
-        <motion.p className="text-iconColor font-bold text-xs p-4">{project.name}</motion.p>
+       <div className="flex flex-row items-center p-5 gap-2">
+       <motion.div className=""
+       animate={{ rotate: 360 }}
+       transition={{ duration: 12, repeat: Infinity, repeatType: "loop" }}
+       ><SvgTwo /></motion.div>
+       <motion.p className="text-textColor font-bold text-sm">{project.name}</motion.p>
+       </div>
         </div>
         <motion.div className="absolute top-4 right-4 rounded-full p-2" whileHover={{ scale: 1.1 }}>
           <CategoryIcon category={project.category} />
         </motion.div>
-        <div className="absolute bottom-0 left-0 right-0 p-6 mb-2 h-48">
+        <div className="absolute top-0 left-0 right-0 mt-12 p-8 gap-3 h-auto">
           <motion.h3
-            className="text-2xl font-bold mb-2 text-iconColor"
+            className="text-3xl font-bold text-iconColor"
             variants={titleVariants}
             initial="rest"
             whileHover="hover"
           >
             {project.title}
           </motion.h3>
-          <p className="text-sm text-textColor bg-black p-2 rounded-lg ">{project.description}</p>
+          <div className="h-auto">
+          <li className=" text-textColor p-2 pt-[30px] ">{project.description}</li>
+          <li className=" text-textColor p-2 ">{project.description2}</li>
+          <li className=" text-textColor p-2 ">{project.description3}</li>
+          <li className=" text-textColor p-2 ">{project.description4}</li>
+          </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 p-2">
-          <motion.img src={project.image} className="img"></motion.img>
-          <p className="text-sm">{project.tech}</p>
+        <div className=" bottom-0 left-0 right-0 px-10 pb-10 flex items-center gap-6">
+          <motion.div className="text-iconColor">Tech Stack : </motion.div>
+          <p className=" text-green-500">{project.tech}</p>
         </div>
       </motion.div>
     </Tilt>
@@ -164,10 +188,10 @@ export default function ProjectSection() {
       transition={{ duration: 0.5 }}
     >
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-extrabold text-center mb-12 text-iconColor">{"<"}Code : My Projects{" />"}</h2>
+        <h2 className="text-4xl font-extrabold text-center mb-12 text-iconColor">{"< "}Code : Projects{" />"}</h2>
         <div className="gap-8 flex flex-col sm:w-2/3 justify-center h-full sm:ml-32 md:ml-40 lg:ml-64 ">
           {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
       </div>
