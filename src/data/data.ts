@@ -1,6 +1,8 @@
 import Ts from "../components/svgs/ts.svg";
 import Js from "../components/svgs/js.svg";
 import Next from "../components/svgs/nextjs.svg";
+import { Aws, Cloudflare, Cplus, Docker, Express, Framer, Gsap, Kubernetes, Linux, MongoDB, Node, Postgress, Prisma, Python, React, Redis, Ros, Rust, solidity, Tailwind, WebRtc } from "@/components/svgs";
+
 
 export const data = {
     skills: [
@@ -14,18 +16,18 @@ export const data = {
         },
         {
             name: "Python",
-            image: "",
+            image: Python,
         },
         {
             name: "C/C++",
-            image: "",
+            image: Cplus,
         },{
             name: "Rust",
-            image: "",
+            image: Rust,
         },
         {
             name: "solidity",
-            image: "/assets/images/anime.png",
+            image:solidity,
         },
         {
             name: "Next.js",
@@ -33,68 +35,68 @@ export const data = {
         },
         {
             name: "React.js",
-            image: "",
+            image: React,
         },{
             name: "Express.js",
-            image: "",
+            image: Express,
         },
         {
             name: "Node.js",
-            image: "",
+            image: Node,
         },
         {
             name: "Tailwind",
-            image: "",
+            image: Tailwind,
         },
         {
             name: "GSAP",
-            image: "",
+            image: Gsap,
         },
         {
-            name: "Framer Motion",
-            image: "",
+            name: "Framer",
+            image: Framer
         },
         {
             name: "Docker",
-            image: "/assets/images/anime.png",
+            image: Docker,
         },{
             name: "AWS",
-            image: "/assets/images/anime.png",
+            image: Aws,
         },{
             name: "Kubernetes",
-            image: "/assets/images/anime.png",
+            image:Kubernetes,
         },
         {
             name: "PostgreSQL",
-            image: "/assets/images/anime.png",
+            image: Postgress,
         },
         {
             name: "Prisma",
-            image: "/assets/images/anime.png",
+            image:Prisma,
         },
         {
             name: "Redis",
-            image: "/assets/images/anime.png",
+            image: Redis,
         },
         {
             name: "MongoDB",
-            image: "/assets/images/anime.png",
+            image: MongoDB,
         },
         {
             name: "Cloudflare",
-            image: "/assets/images/anime.png",
+            image: Cloudflare,
         },
         {
             name: "WebRTC",
-            image: "/assets/images/anime.png",
+            image: WebRtc,
         },
         {
             name: "Linux",
-            image: "/assets/images/anime.png",
+            image: Linux,
         },
         {
             name: "ROS",
-            image: "/assets/images/anime.png",
+            image:Ros,
         },
         
     ],
