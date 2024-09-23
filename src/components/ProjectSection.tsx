@@ -120,7 +120,7 @@ const ProjectCard = ({ project }: { project: any }) => {
     >
       <motion.div
         ref={cardRef}
-        className="relative overflow-hidden rounded-lg shadow-lg"
+        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl"
         style={{
           // rotateX: rotate,
           opacity,
@@ -128,12 +128,12 @@ const ProjectCard = ({ project }: { project: any }) => {
         whileHover={{ y: -5, boxShadow: "0 20px 30px rgba(0,0,0,0.2)" }}
       >
         <motion.div
-          className="absolute inset-0 bg-black opacity-40"
+          className="absolute inset-0 bg-zinc-800 opacity-40"
           initial={{ opacity: 0.4 }}
           whileHover={{ opacity: 0.2 }}
           transition={{ duration: 0.3 }}
         />
-        <div className=" w-full min-h-96">
+        <div className="">
           <motion.div
             className="w-full object-cover "
             whileHover={{ scale: 1.05 }}
@@ -179,9 +179,9 @@ const ProjectCard = ({ project }: { project: any }) => {
         >
           <CategoryIcon category={project.category} />
         </motion.button>
-        <div className="absolute top-0 left-0 right-0 mt-12 p-8 gap-3 h-auto">
+        <div className=" top-0 left-0 right-0 p-8 gap-6 h-full">
           <motion.h3
-            className="text-3xl font-bold text-iconColor"
+            className=" sm:absolute text-3xl font-bold text-iconColor  sm:top-20 "
             variants={titleVariants}
             initial="rest"
             whileHover="hover"
@@ -237,12 +237,12 @@ export default function ProjectSection() {
   return (
     <motion.div
       ref={containerRef}
-      className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-three"
+      className="min-h-screen sm:py-20  px-4 sm:px-6 lg:px-8 bg-three"
       // animate={{ backgroundColor: bgColor }}
       transition={{ duration: 0.5 }}
     >
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-extrabold text-center mb-12 text-iconColor">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-center mb-12 text-iconColor">
           {"< "}Code : Projects{" />"}
         </h2>
         <div className="gap-8 flex flex-col sm:w-2/3 justify-center h-full sm:ml-32 md:ml-40 lg:ml-64 ">
