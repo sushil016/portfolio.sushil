@@ -121,12 +121,15 @@ const ProjectCard = ({ project }: { project: any }) => {
       <motion.div
         ref={cardRef}
         className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl"
+        
         style={{
           // rotateX: rotate,
-          opacity,
+          // opacity,
         }}
-        whileHover={{ y: -5, boxShadow: "0 20px 30px rgba(0,0,0,0.2)" }}
-      >
+        whileTap={{ scale: 0.75 }}
+        transition={{ duration: 0.4 }}
+        whileHover={{ boxShadow: "0px 20px 30px rgba(75, 0, 130, 0.6), 0 10px 15px rgba(255, 165, 0, 0.4)" }}
+            >
         <motion.div
           className="absolute inset-0 bg-zinc-800 opacity-40"
           initial={{ opacity: 0.4 }}
@@ -157,13 +160,14 @@ const ProjectCard = ({ project }: { project: any }) => {
               </motion.p>
             </div>
             <motion.button
+            
               onClick={() =>
                 router.push(
                   "https://github.com/sushil016/notewrite-edtech/tree/main/frontend-server"
                 )
               }
               whileHover={{ scale: 1.1 }}
-              className="mr-[75px]"
+              className=" top-6 right-20 absolute "
             >
               <Github className="w-10 h-10 text-iconColor" />
             </motion.button>

@@ -24,5 +24,5 @@ export { default as Gsap} from "./gsap.png"
 export { default as Ros} from "./ros.png"
 export { default as WebRtc} from "./Rtc.png"
 export { default as Cplus} from "./CCplus.png"
-
-
+export { default as ImageAi } from "./imageai.png"
+export { default as GigAi} from  "./gifImageAi.gif"
