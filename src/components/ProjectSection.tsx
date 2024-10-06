@@ -3,12 +3,14 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Tilt from "react-parallax-tilt";
-import { Code, Palette, Globe, Github } from "lucide-react";
+import { Code, Palette, Globe } from "lucide-react";
+import { SiGithub } from "react-icons/si";
 import Anime from "./svgs/icons8-anime-600.svg";
 import { SvgTwo } from "./ui/Svgtwo";
 import { Curlybracket } from "./svgs";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const projects = [
   {
@@ -26,6 +28,8 @@ const projects = [
     image: Anime,
     category: "web",
     color: "#1E1E2E",
+    githubLink: "https://github.com/sushil016/notewrite-edtech",
+    liveLink: "https://notewrite-edtech.vercel.app/"
   },
   {
     id: 2,
@@ -43,6 +47,8 @@ const projects = [
     image: "",
     category: "mobile",
     color: "#1E1E2E",
+    githubLink: "https://github.com/sushil016/realtime-android-app",
+    liveLink: ""
   },
   {
     id: 3,
@@ -56,6 +62,8 @@ const projects = [
     image: "",
     category: "web",
     color: "#1E1E2E",
+    githubLink: "https://github.com/sushil016/paytm-backend",
+    liveLink: ""
   },
   {
     id: 4,
@@ -73,6 +81,8 @@ const projects = [
     image: "",
     category: "web",
     color: "#1E1E2E",
+    githubLink: "https://github.com/sushil016/portfolio.sushil",
+    liveLink: "https://sushilsahani.vercel.app"
   },
 ];
 
@@ -108,7 +118,6 @@ const ProjectCard = ({ project }: { project: any }) => {
   };
 
   const router = useRouter();
-
   return (
     <Tilt
       tiltMaxAngleX={4}
@@ -119,102 +128,100 @@ const ProjectCard = ({ project }: { project: any }) => {
       gyroscope={true}
     >
       <motion.div
-        ref={cardRef}
-        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl"
-        
-        style={{
-          // rotateX: rotate,
-          // opacity,
-        }}
-        whileTap={{ scale: 0.75 }}
-        transition={{ duration: 0.4 }}
-        whileHover={{ boxShadow: "0px 20px 30px rgba(75, 0, 130, 0.6), 0 10px 15px rgba(255, 165, 0, 0.4)" }}
-            >
+      ref={cardRef}
+      className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl"
+      style={{
+        // rotateX: rotate,
+        // opacity,
+      }}
+      whileTap={{ scale: 0.75 }}
+      transition={{ duration: 0.4 }}
+      whileHover={{ boxShadow: "0px 20px 30px rgba(75, 0, 130, 0.6), 0 10px 15px rgba(255, 165, 0, 0.4)" }}
+      >
+      <motion.div
+        className="absolute inset-0 bg-zinc-800 opacity-40"
+        initial={{ opacity: 0.4 }}
+        whileHover={{ opacity: 0.2 }}
+        transition={{ duration: 0.3 }}
+      />
+      <div className="">
         <motion.div
-          className="absolute inset-0 bg-zinc-800 opacity-40"
-          initial={{ opacity: 0.4 }}
-          whileHover={{ opacity: 0.2 }}
-          transition={{ duration: 0.3 }}
+        className="w-full object-cover"
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.3 }}
         />
-        <div className="">
+        <div className="flex flex-row items-center justify-between p-5 gap-2">
+        <div className="flex gap-3 items-center">
           <motion.div
-            className="w-full object-cover "
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          />
-          <div className="flex flex-row items-center justify-between p-5 gap-2 ">
-            <div className="flex  gap-3 items-center">
-              <motion.div
-                className=""
-                animate={{ rotate: 360 }}
-                transition={{
-                  duration: 12,
-                  repeat: Infinity,
-                  repeatType: "loop",
-                }}
-              >
-                <SvgTwo />
-              </motion.div>
-              <motion.p className="text-textColor font-bold text-sm">
-                {project.name}
-              </motion.p>
-            </div>
-            <motion.button
-            
-              onClick={() =>
-                router.push(
-                  "https://github.com/sushil016/notewrite-edtech/tree/main/frontend-server"
-                )
-              }
-              whileHover={{ scale: 1.1 }}
-              className=" top-6 right-20 absolute "
-            >
-              <Github className="w-10 h-10 text-iconColor" />
-            </motion.button>
-          </div>
-        </div>
-
-        <motion.button
-          onClick={() =>
-            router.push("https://sushilportfolio-sigma.vercel.app")
-          }
-          className="absolute top-4 right-4 rounded-full p-2 text-iconColor"
-          whileHover={{ scale: 1.1 }}
-        >
-          <CategoryIcon category={project.category} />
-        </motion.button>
-        <div className=" top-0 left-0 right-0 p-8 gap-6 h-full">
-          <motion.h3
-            className=" sm:absolute text-3xl font-bold text-iconColor  sm:top-20 "
-            variants={titleVariants}
-            initial="rest"
-            whileHover="hover"
+          className=""
+          animate={{ rotate: 360 }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            repeatType: "loop",
+          }}
           >
-            {project.title}
-          </motion.h3>
-          <div className="h-auto">
-            <li className=" text-textColor p-2 pt-[30px] ">
-              {project.description}
-            </li>
-            <li className=" text-textColor p-2 ">{project.description2}</li>
-            <li className=" text-textColor p-2 ">{project.description3}</li>
-            <li className=" text-textColor p-2 ">{project.description4}</li>
-          </div>
-        </div>
-        <div className=" bottom-0 left-0 right-0 px-10 pb-10 flex items-center gap-6">
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 20, repeat: Infinity, repeatType: "loop" }}
-          >
-            <Image
-              src={Curlybracket}
-              width={25}
-              height={25}
-              alt="Picture of the author"
-            ></Image>
+          <SvgTwo />
           </motion.div>
-          <p className=" text-green-500">{project.tech}</p>
+          <motion.p className="text-textColor font-bold text-sm">
+          {project.name}
+          </motion.p>
         </div>
+        <motion.button   
+          // onClick={(e) => {
+          // e.stopPropagation();
+          // window.open(project.githubLink, "_blank");
+          // }}  
+          whileHover={{ scale: 1.1 }}
+          className="top-6 right-20 absolute"
+        >
+          <Link href={project.githubLink}><SiGithub className="w-10 h-10 text-iconColor" />
+          </Link>
+        </motion.button>
+        </div>
+      </div>
+
+      <motion.button
+        // onClick={() =>
+        // router.push("https://sushilsahani.vercel.app")
+        // }
+        className="absolute top-4 right-4 rounded-full p-2 text-iconColor"
+        whileHover={{ scale: 1.1 }}
+      >
+       <Link href={project.liveLink}> <CategoryIcon category={project.category} /></Link>
+      </motion.button>
+      <div className="top-0 left-0 right-0 p-8 gap-6 h-full">
+        <motion.h3
+        className="sm:absolute text-3xl font-bold text-iconColor sm:top-20"
+        variants={titleVariants}
+        initial="rest"
+        whileHover="hover"
+        >
+        {project.title}
+        </motion.h3>
+        <div className="h-auto">
+        <li className="text-textColor p-2 pt-[30px]">
+          {project.description}
+        </li>
+        <li className="text-textColor p-2">{project.description2}</li>
+        <li className="text-textColor p-2">{project.description3}</li>
+        <li className="text-textColor p-2">{project.description4}</li>
+        </div>
+      </div>
+      <div className="bottom-0 left-0 right-0 px-10 pb-10 flex items-center gap-6">
+        <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ duration: 20, repeat: Infinity, repeatType: "loop" }}
+        >
+        <Image
+          src={Curlybracket}
+          width={25}
+          height={25}
+          alt="Picture of the author"
+        />
+        </motion.div>
+        <p className="text-green-500">{project.tech}</p>
+      </div>
       </motion.div>
     </Tilt>
   );

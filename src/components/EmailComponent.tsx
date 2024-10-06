@@ -1,6 +1,7 @@
 import { Mail } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import { motion } from "framer-motion";
 
 const EmailComponent = () => {
   return (
@@ -11,15 +12,20 @@ const EmailComponent = () => {
           <div className="text-neutral-300 hover:text-neutral-400 transition-colors duration-200">
             sahanisushil325@gmail.com
           </div>
-          <div className="">
+          <motion.div className=""
+         whileHover={{rotate : 360}}
+         whileTap={{ scale: 0.75 }}
+         transition={{ duration: 1 }}
+         
+          >
             <Link
-              href=""
+              href="https://mail.google.com/mail/u/0/#inbox?compose=new"
               className="text-muted-foreground hover:text-primary transition-colors duration-200"
             >
-              <span className="sr-only">Email</span>
+        {/* <span className="sr-only">Email</span> */}
               <Mail className="w-6 h-6 text-iconColor" />
             </Link>
-          </div>
+          </motion.div>
         </div>
       </div>
     </>

@@ -98,6 +98,10 @@ export const data = {
             name: "ROS",
             image:Ros,
         },
+        {
+            name: "& MORE",
+             image: Next
+        }
         
     ],
 };

@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const Skills = () => {
   return (
-    <main className=" w-full h-full sm:py-8 bg-three">
+    <main id="skills" className=" w-full h-full sm:py-8 bg-three">
       <div className="text-iconColor text-center text-4xl font-bold">
         {"< "}Code : Skills {"/>"}{" "}
       </div>

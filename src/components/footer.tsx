@@ -126,7 +126,7 @@ export function FooterComponent() {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
-                    href="sahanisushil325@gmail.com"
+                    href="https://mail.google.com/mail/u/0/#inbox?compose=new"
                     className="text-muted-foreground hover:text-primary transition-colors duration-200"
                   >
                     <span className="sr-only">Email</span>
