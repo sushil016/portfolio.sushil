@@ -9,7 +9,6 @@ const navItems = [
   { name: 'Technical Skills', href: '#skills' },
   { name: 'Experience', href: '#experience' },
   { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' },
 ]
 
 interface props  {

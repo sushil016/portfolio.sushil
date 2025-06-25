@@ -127,7 +127,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
     >
       <motion.div
         ref={cardRef}
-        className="relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/30 p-6 shadow-2xl hover:shadow-iconColor/10 transition-all duration-300 h-80"
+        className="relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/30 p-6 shadow-2xl hover:shadow-iconColor/10 transition-all duration-300 md:h-80 h-96"
         whileHover={{ 
           boxShadow: "0px 20px 30px rgba(75, 0, 130, 0.4), 0 10px 15px rgba(255, 165, 0, 0.2)" 
         }}
