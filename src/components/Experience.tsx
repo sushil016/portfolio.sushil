@@ -7,7 +7,7 @@ const Experience = () => {
       title: "DevOps Engineer Intern",
       company: "CREW ",
       duration: "January 2025 - Present",
-      location: "Remote",
+      location: "Remote - Sydney, Australia",
       description: "Working as a DevOps Engineer Intern at a dynamic startup environment, collaborating directly with senior DevOps professionals and C-level executives to build and maintain production infrastructure across multiple cloud platforms.",
       achievements: [
         "Managed production deployments across Azure and Google Cloud Platform, creating and maintaining Docker images while pushing to Azure Container Registry and Google Artifact Registry for scalable application deployment",
@@ -23,7 +23,7 @@ const Experience = () => {
       title: "Full Stack Developer Intern",
       company: "IIT Bombay",
       duration: "October 2024 - March 2025",
-      location: "Aerospace Engineering Department",
+      location: "On-site - IIT Bombay, Powai, Mumbai",
       description: "Developed a comprehensive Procurement Management System for the Aerospace Department at IIT Bombay, serving administrators and project staff involved in research projects.",
       achievements: [
         "Built responsive React.js application with TypeScript",
