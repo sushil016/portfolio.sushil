@@ -13,7 +13,7 @@ import Link from "next/link";
 
 export function FooterComponent() {
   return (
-    <footer className="bg-three ">
+    <footer id="contact" className="bg-three ">
       <div className="container px-4 py-12 mx-auto">
         <div className="flex flex-col justify-center items-center">
         <h3 className="mb-4 text-xl font-semibold">Aspirant OP</h3>
@@ -30,6 +30,8 @@ export function FooterComponent() {
                 <TooltipTrigger asChild>
                   <Link
                     href="https://github.com/sushil016"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="duration-200"
                   >
                     <span className="sr-only">GitHub</span>
@@ -54,6 +56,8 @@ export function FooterComponent() {
                 <TooltipTrigger asChild>
                   <Link
                     href="https://x.com/Sushil_Sahani37?t=Vf7WhfLqM3D2ZTb46HTtTw&s=09"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-primary transition-colors duration-200"
                   >
                     <span className="sr-only">Twitter</span>
@@ -75,7 +79,9 @@ export function FooterComponent() {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
-                    href="https://discord.com"
+                    href="https://discord.com/users/sushilz16"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-primary transition-colors duration-200"
                   >
                     <span className="sr-only">Discord</span>
@@ -117,7 +123,7 @@ export function FooterComponent() {
                 >
                   <div className="flex items-center space-x-2 text-zinc-950">
                     
-                    <p>connect to sushilz16</p>
+                    <p>Add me on Discord: sushilz16</p>
                     <ExternalLink className="w-3 h-3" />
                   </div>
                   <div className="invisible absolute h-10 w-5 mt-1 ml-12 bg-inherit before:visible before:absolute before:h-2 before:w-2 before:rotate-45 before:bg-inherit before:content-['']"></div>
@@ -127,6 +133,8 @@ export function FooterComponent() {
                 <TooltipTrigger asChild>
                   <Link
                     href="https://mail.google.com/mail/u/0/#inbox?compose=new"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-primary transition-colors duration-200"
                   >
                     <span className="sr-only">Email</span>
@@ -147,7 +155,7 @@ export function FooterComponent() {
             </div>
           </TooltipProvider>
           <p className="text-[12px] sm:text-sm text-muted-foreground py-5">
-           {"< "} © 2024 Aspirant OP. {" />"}
+           {"< "} © 2025 Aspirant OP. {" />"}
           </p>
         </div>
 

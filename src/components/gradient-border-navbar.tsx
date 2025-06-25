@@ -5,9 +5,10 @@ import { motion } from 'framer-motion'
 
 
 const navItems = [
+  { name: 'About', href: '#about' },
   { name: 'Technical Skills', href: '#skills' },
+  { name: 'Experience', href: '#experience' },
   { name: 'Projects', href: '#projects' },
-  { name: 'Work', href: '#work' },
   { name: 'Contact', href: '#contact' },
 ]
 

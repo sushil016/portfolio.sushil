@@ -6,15 +6,24 @@ import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
 
 export function ThreeDCardDemo() {
   return (
-    <CardContainer className="inter-var">
-      <CardBody className=" relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] borderone w-auto sm:w-[30rem] h-auto rounded-xl p-6  ">
-        <CardItem
-          translateZ="50"
-          className="text-xl font-bold text-neutral-600 dark:text-white"
-        >
-          Aspirant OP Here!
-        </CardItem>
-        <CardItem translateZ="100" className="w-full sm:mt-4">
+    <div 
+      role="img"
+      aria-label="Sushil's animated profile avatar"
+      className="focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-xl"
+      tabIndex={0}
+    >
+      <CardContainer className="inter-var">
+        <CardBody className="relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] borderone w-auto sm:w-[30rem] h-auto rounded-xl p-6">
+          <CardItem
+            translateZ="50"
+            className="text-xl font-bold text-neutral-600 dark:text-white"
+          >
+            Aspirant OP Here!
+          </CardItem>
+          <CardItem 
+            translateZ="100" 
+            className="w-full sm:mt-4"
+          >
           <svg
           className="w-full h-full"
             xmlns="http://www.w3.org/2000/svg"
@@ -151,6 +160,7 @@ export function ThreeDCardDemo() {
         </CardItem>
       </CardBody>
     </CardContainer>
+    </div>
   );
 }
 

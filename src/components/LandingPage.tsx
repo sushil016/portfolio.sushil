@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import useMousePosition from "@/app/utils/mouseposition";
 import { FooterComponent } from "./footer";
+import ChatWidget from "./ChatWidget";
 
 
 const LandingPage = () => {
@@ -55,12 +56,21 @@ const LandingPage = () => {
 
   return (
     <>
+      {/* Skip link for accessibility */}
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-orange-500 text-white px-4 py-2 rounded-md z-[100] focus:z-[100]"
+      >
+        Skip to main content
+      </a>
+      
       <div>
         <motion.div
           variants={variants}
           transition={spring}
           animate={bgVariant}
           className="cursor-none z-50 h-[40px] w-[40px] rounded-full border-2 border-orange-600 fixed top-0 left-0 pointer-events-none justify-center items-center shadow-lg shadow-violet-500"
+          aria-hidden="true"
         > 
           <span className="text-white m-auto font-size-inherit flex justify-center items-center mt-9">
             {cursorText}
@@ -68,14 +78,16 @@ const LandingPage = () => {
         </motion.div>
       </div>
       <Navbar bgVariant={bgVariant} setBgVarient={setBgVariant} />
-      <Home
-        
-        bgVariant={bgVariant}
-        setBgVariant={setBgVariant}
-        cursorText={cursorText}
-        setCursorText={setCursorText}
-      />
+      <main role="main" id="main-content">
+        <Home
+          bgVariant={bgVariant}
+          setBgVariant={setBgVariant}
+          cursorText={cursorText}
+          setCursorText={setCursorText}
+        />
+      </main>
       <FooterComponent/>
+      <ChatWidget />
     </>
   );
 };

@@ -4,6 +4,10 @@ import { DockDemo } from "./Icon";
 import { ThreeDCardDemo } from "./profile";
 import Project from "./Project";
 import Skills from "./Skills";
+import Experience from "./Experience";
+import { Suspense } from "react";
+import ProfileSkeleton from "./ProfileSkeleton";
+import DockSkeleton from "./DockSkeleton";
 
 interface HomeProps {
   bgVariant: string;
@@ -23,6 +27,21 @@ const Home: React.FC<HomeProps> = ({ setBgVariant, setCursorText }) => {
     setCursorText("");
   }
 
+  // Keyboard event handler for accessibility
+  function handleKeyDown(event: React.KeyboardEvent) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      textEnter();
+    }
+  }
+
+  function handleKeyUp(event: React.KeyboardEvent) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      textOut();
+    }
+  }
+
   return (
     <>
       <div className="bg-[#1E1E2E] w-full flex flex-col md:flex-row">
@@ -30,7 +49,12 @@ const Home: React.FC<HomeProps> = ({ setBgVariant, setCursorText }) => {
           <div
             onMouseEnter={textEnter}
             onMouseLeave={textOut}
-            className="text-[#B2DBF2] text-left md:text-[80px] text-[50px] font-bold pointer-events "
+            onKeyDown={handleKeyDown}
+            onKeyUp={handleKeyUp}
+            tabIndex={0}
+            role="button"
+            aria-label="Interactive name element"
+            className="text-[#B2DBF2] text-left md:text-[80px] text-[50px] font-bold pointer-events focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-lg"
           >
             Sushil Here!
           </div>
@@ -38,19 +62,24 @@ const Home: React.FC<HomeProps> = ({ setBgVariant, setCursorText }) => {
             Full Stack Developer | Open source
           </div>
           <div className="text-[#CAA6F7] text-center md:text-[30px] mt-4 text-[20px] font-bold md:ml-[60px] md:w-[600px] p-2">
-            Feel free to tweak it to match your style!
+            Building scalable web applications with Ai Automation
           </div>
-          <DockDemo />
+          <Suspense fallback={<DockSkeleton />}>
+            <DockDemo />
+          </Suspense>
           <EmailComponent />
         </div>
         <div className="h-full md:w-1/2 flex justify-center items-center">
-          <ThreeDCardDemo />
+          <Suspense fallback={<ProfileSkeleton />}>
+            <ThreeDCardDemo />
+          </Suspense>
         </div>
       </div>
       <AboutMe />
       <div className="bg-three h-auto ">
         <Skills />
       </div>
+      <Experience />
       <Project />
     </>
   );

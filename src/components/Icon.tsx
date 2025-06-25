@@ -1,40 +1,91 @@
-import React from "react";
+import React, { useState } from "react";
 import { Dock, DockIcon } from "./ui/IconDock";
 import Link from "next/link";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import ImageResumeModal from "./ImageResumeModal";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
 export function DockDemo() {
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
+
+  const openResume = () => setIsResumeOpen(true);
+  const closeResume = () => setIsResumeOpen(false);
+
   return (
-    <div className="relative ">
-      <Dock className="gap-8" magnification={60} distance={100}>
-        <DockIcon className="bg-black/10 dark:bg-white/10 p-3">
-          <Link href="https://github.com/sushil016">
-            <Icons.gitHub className="size-full" />
-          </Link>
-        </DockIcon>
-        <DockIcon className="bg-black/10 dark:bg-white/10 p-3">
-          <Link href="https://www.linkedin.com/in/sushil-sahani-46235527b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app ">
-            <Icons.linkedin className="size-full" />
-          </Link>
-        </DockIcon>
-        <DockIcon className="bg-black/10 dark:bg-white/10 p-3">
-          <Link href="https://x.com/Sushil_Sahani37?t=Vf7WhfLqM3D2ZTb46HTtTw&s=09">
-            {" "}
-            <Icons.Twitter className="size-full" />
-          </Link>
-        </DockIcon>
-        <DockIcon className="bg-black/10 dark:bg-white/10 p-3">
-          <Link href="https://www.instagram.com/sushil__16?igsh=MW52cTl1ZTlvODk1dw==">
-            {" "}
-            <Icons.Instagram className="size-full" />
-          </Link>
-        </DockIcon>
-      </Dock>
-    </div>
+    <>
+      <div 
+        className="relative"
+        role="navigation"
+        aria-label="Social media links and resume"
+      >
+        <Dock 
+          className="gap-8" 
+          magnification={60} 
+          distance={100}
+        >
+          <DockIcon className="bg-black/10 dark:bg-white/10 p-3">
+            <Link 
+              href="https://github.com/sushil016"
+              aria-label="Visit Sushil's GitHub profile"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-lg"
+            >
+              <Icons.gitHub className="size-full" />
+            </Link>
+          </DockIcon>
+          <DockIcon className="bg-black/10 dark:bg-white/10 p-3">
+            <Link 
+              href="https://www.linkedin.com/in/sushil-sahani-46235527b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+              aria-label="Visit Sushil's LinkedIn profile"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-lg"
+            >
+              <Icons.linkedin className="size-full" />
+            </Link>
+          </DockIcon>
+          <DockIcon className="bg-black/10 dark:bg-white/10 p-3">
+            <Link 
+              href="https://x.com/Sushil_Sahani37?t=Vf7WhfLqM3D2ZTb46HTtTw&s=09"
+              aria-label="Visit Sushil's Twitter/X profile"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-lg"
+            >
+              <Icons.Twitter className="size-full" />
+            </Link>
+          </DockIcon>
+          <DockIcon className="bg-black/10 dark:bg-white/10 p-3">
+            <Link 
+              href="https://www.instagram.com/sushil__16?igsh=MW52cTl1ZTlvODk1dw=="
+              aria-label="Visit Sushil's Instagram profile"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-lg"
+            >
+              <Icons.Instagram className="size-full" />
+            </Link>
+          </DockIcon>
+          {/* Resume Icon */}
+          <DockIcon className="bg-black/10 dark:bg-white/10 p-3">
+            <button
+              onClick={openResume}
+              aria-label="View Sushil's resume"
+              className="focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-lg w-full h-full flex items-center justify-center"
+            >
+              <Icons.Resume className="size-full" />
+            </button>
+          </DockIcon>
+        </Dock>
+      </div>
+      
+      {/* Resume Modal */}
+      <ImageResumeModal isOpen={isResumeOpen} onClose={closeResume} />
+    </>
   );
 }
 
@@ -94,6 +145,17 @@ const Icons = {
         </filter>
       </defs>
       <InstagramIcon />
+    </svg>
+  ),
+  Resume: (props: IconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      {...props}
+    >
+      <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+      <path d="M8,12V14H16V12H8M8,16V18H13V16H8Z" />
     </svg>
   ),
 };
