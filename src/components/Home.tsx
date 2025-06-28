@@ -27,20 +27,20 @@ const Home: React.FC<HomeProps> = ({ setBgVariant, setCursorText }) => {
     setCursorText("");
   }
 
-  // Keyboard event handler for accessibility
-  function handleKeyDown(event: React.KeyboardEvent) {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      textEnter();
-    }
-  }
+  // // Keyboard event handler for accessibility
+  // function handleKeyDown(event: React.KeyboardEvent) {
+  //   if (event.key === "Enter" || event.key === " ") {
+  //     event.preventDefault();
+  //     textEnter();
+  //   }
+  // }
 
-  function handleKeyUp(event: React.KeyboardEvent) {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      textOut();
-    }
-  }
+  // function handleKeyUp(event: React.KeyboardEvent) {
+  //   if (event.key === "Enter" || event.key === " ") {
+  //     event.preventDefault();
+  //     textOut();
+  //   }
+  // }
 
   return (
     <>
@@ -49,8 +49,8 @@ const Home: React.FC<HomeProps> = ({ setBgVariant, setCursorText }) => {
           <div
             onMouseEnter={textEnter}
             onMouseLeave={textOut}
-            onKeyDown={handleKeyDown}
-            onKeyUp={handleKeyUp}
+            // onKeyDown={handleKeyDown}
+            // onKeyUp={handleKeyUp}
             tabIndex={0}
             role="button"
             aria-label="Interactive name element"

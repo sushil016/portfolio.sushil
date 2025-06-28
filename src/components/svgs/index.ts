@@ -26,4 +26,8 @@ export { default as WebRtc} from "./Rtc.png"
 export { default as Cplus} from "./CCplus.png"
 export { default as ImageAi } from "./imageai.png"
 export { default as GigAi} from  "./gifImageAi.gif"
+export { default as Azure } from "./azure.svg"
+export { default as GCP } from "./gcp.svg"
+export { default as ArgoCD } from "./argocd.svg"
+export { default as Helm } from "./helm.svg"
 

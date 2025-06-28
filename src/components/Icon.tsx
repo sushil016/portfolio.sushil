@@ -50,7 +50,7 @@ export function DockDemo() {
           </DockIcon>
           <DockIcon className="bg-black/10 dark:bg-white/10 p-3">
             <Link 
-              href="https://x.com/Sushil_Sahani37?t=Vf7WhfLqM3D2ZTb46HTtTw&s=09"
+              href="https://x.com/not_aspirant?t=Vf7WhfLqM3D2ZTb46HTtTw&s=09"
               aria-label="Visit Sushil's Twitter/X profile"
               target="_blank"
               rel="noopener noreferrer"
@@ -61,7 +61,7 @@ export function DockDemo() {
           </DockIcon>
           <DockIcon className="bg-black/10 dark:bg-white/10 p-3">
             <Link 
-              href="https://www.instagram.com/sushil__16?igsh=MW52cTl1ZTlvODk1dw=="
+              href="https://www.instagram.com/notaspirant7?igsh=MW52cTl1ZTlvODk1dw=="
               aria-label="Visit Sushil's Instagram profile"
               target="_blank"
               rel="noopener noreferrer"

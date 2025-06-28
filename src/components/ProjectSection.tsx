@@ -43,6 +43,66 @@ const projects = [
   },
   {
     id: 2,
+    name: "CrewArcade",
+    title: "Arcade Engine - Game Creator Platform",
+    description: [
+      "Innovative platform that transforms simple prompts into interactive games and flowchart videos using advanced AI algorithms and game development frameworks",
+      "Built scalable architecture with React.js frontend, Supabase backend, and PostgreSQL database, enabling users to create engaging interactive content without technical expertise"
+    ],
+    tech: "React.js, JavaScript, TypeScript, Supabase, PostgreSQL, Docker",
+    image: "",
+    category: "web",
+    color: "#1E1E2E",
+    githubLink: "",
+    liveLink: "https://crewarcade.com"
+  },
+  {
+    id: 3,
+    name: "BVCOE IRL",
+    title: "Robonauts - College Robotics Team Website",
+    description: [
+      "Official website for Bharti Vidyapeeth's College of Engineering robotics team showcasing team achievements, projects, and upcoming events",
+      "Developed responsive web application with dynamic content management, team member profiles, and event registration system using modern React.js ecosystem"
+    ],
+    tech: "JavaScript, TypeScript, React.js, Node.js, Express.js, PostgreSQL",
+    image: "",
+    category: "web",
+    color: "#1E1E2E",
+    githubLink: "https://github.com/sushil016/Robonauts-intro",
+    liveLink: "https://robonauts-one.vercel.app/"
+  },
+  {
+    id: 4,
+    name: "BVCOENM",
+    title: "Robomania - Competition Registration Platform",
+    description: [
+      "Comprehensive competition registration website for Bharti Vidyapeeth's robotics competitions with real-time registration tracking and participant management",
+      "Implemented secure user authentication, payment integration, and automated email notifications for seamless competition management experience"
+    ],
+    tech: "JavaScript, TypeScript, React.js, Node.js, Express.js, PostgreSQL",
+    image: "",
+    category: "web",
+    color: "#1E1E2E",
+    githubLink: "https://github.com/sushil016/robomania",
+    liveLink: "https://robomania-teal.vercel.app/"
+  },
+  {
+    id: 5,
+    name: "LumaDev",
+    title: "LumaDev - Web Development Agency",
+    description: [
+      "Professional web development agency website showcasing services, portfolio, and team expertise with modern design and seamless user experience",
+      "Built with scalable architecture using React.js, Node.js, and PostgreSQL, featuring dynamic content management, client testimonials, and service booking system"
+    ],
+    tech: "JavaScript, TypeScript, React.js, PostgreSQL, Node.js, Express.js, Docker",
+    image: "",
+    category: "web",
+    color: "#1E1E2E",
+    githubLink: "https://github.com/sushil016/lumadev",
+    liveLink: "https://lumadev.in"
+  },
+  {
+    id: 6,
     name: "Aspirant OP",
     title: "getChecked - Location Tracker",
     description: [
@@ -57,7 +117,7 @@ const projects = [
     liveLink: null // No live demo available for mobile app
   },
   {
-    id: 3,
+    id: 7,
     name: "Aspirant OP",
     title: "Solution AI - Learning Platform",
     description: [
@@ -72,7 +132,7 @@ const projects = [
     liveLink: "https://solutionai.sushilsahani.tech/"
   },
   {
-    id: 4,
+    id: 8,
     name: "Aspirant OP",
     title: "Portfolio Website",
     description: [
@@ -127,7 +187,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
     >
       <motion.div
         ref={cardRef}
-        className="relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/30 p-6 shadow-2xl hover:shadow-iconColor/10 transition-all duration-300 md:h-80 h-96"
+        className="relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/30 p-6 shadow-2xl hover:shadow-iconColor/10 transition-all duration-300 h-[420px]"
         whileHover={{ 
           boxShadow: "0px 20px 30px rgba(75, 0, 130, 0.4), 0 10px 15px rgba(255, 165, 0, 0.2)" 
         }}
@@ -151,14 +211,16 @@ const ProjectCard = ({ project }: { project: Project }) => {
           </div>
           
           <div className="flex gap-2">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              className="p-2 rounded-full hover:bg-gray-700/50 transition-colors"
-            >
-              <Link href={project.githubLink} target="_blank">
-                <SiGithub className="w-5 h-5 text-iconColor" />
-              </Link>
-            </motion.button>
+            {project.githubLink && (
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                className="p-2 rounded-full hover:bg-gray-700/50 transition-colors"
+              >
+                <Link href={project.githubLink} target="_blank">
+                  <SiGithub className="w-5 h-5 text-iconColor" />
+                </Link>
+              </motion.button>
+            )}
             
             {project.liveLink && (
               <motion.button

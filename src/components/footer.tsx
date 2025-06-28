@@ -55,7 +55,7 @@ export function FooterComponent() {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
-                    href="https://x.com/Sushil_Sahani37?t=Vf7WhfLqM3D2ZTb46HTtTw&s=09"
+                    href="https://x.com/not_aspirant?t=Vf7WhfLqM3D2ZTb46HTtTw&s=09"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-primary transition-colors duration-200"
