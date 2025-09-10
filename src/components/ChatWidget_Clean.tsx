@@ -201,15 +201,13 @@ const ChatWidget = () => {
 
   const getWidgetClasses = () => {
     if (isExpanded) {
-      // Ensure full viewport height when expanded so inner areas can scroll
-      return "fixed inset-0 z-50 p-4 h-screen";
+      return "fixed inset-0 z-50 p-4";
     }
-    return "w-[calc(100vw-2rem)] sm:w-96 max-w-md h-[85vh] sm:h-[80vh]";
+    return "w-[calc(100vw-2rem)] sm:w-96 max-w-md max-h-[85vh] sm:max-h-[80vh]";
   };
 
   const getChatContainerClasses = () => {
-    // Ensure the container fills available height so inner areas can scroll
-    const baseClasses = "bg-gray-800/95 backdrop-blur-xl border border-gray-700/50 shadow-2xl flex flex-col overflow-hidden rounded-2xl h-full min-h-0";
+    const baseClasses = "bg-gray-800/95 backdrop-blur-xl border border-gray-700/50 shadow-2xl flex flex-col overflow-hidden rounded-2xl";
     return baseClasses;
   };
 
@@ -224,9 +222,7 @@ const ChatWidget = () => {
             transition={{ duration: 0.2 }}
             className={getWidgetClasses()}
           >
-            <div 
-              className={getChatContainerClasses()}
-            >
+            <div className={getChatContainerClasses()}>
               {/* Enhanced Header */}
               <div className="px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r from-gray-800 to-gray-900 border-b border-gray-700/30">
                 <div className="flex items-center justify-between">
@@ -301,21 +297,11 @@ const ChatWidget = () => {
               </div>
 
               {/* Content Area */}
-              <div className="flex-1 flex flex-col min-h-0 h-full p-4 sm:p-6 pt-3 sm:pt-4">
+              <div className="flex-1 flex flex-col min-h-0 p-4 sm:p-6 pt-3 sm:pt-4">
                 {chatMode === 'ai' ? (
                   <>
                     {/* AI Chat History */}
-                    <div 
-                      className="flex-1 min-h-0 max-h-full overflow-y-auto overscroll-contain mb-3 sm:mb-4 space-y-2 sm:space-y-3 pr-1 sm:pr-2 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800"
-                      data-lenis-prevent="true"
-                      data-lenis-prevent-wheel="true"
-                      data-lenis-prevent-touch="true"
-                      style={{ 
-                        scrollBehavior: 'smooth',
-                        WebkitOverflowScrolling: 'touch',
-                        touchAction: 'pan-y'
-                      }}
-                    >
+                    <div className="flex-1 overflow-y-auto mb-3 sm:mb-4 space-y-2 sm:space-y-3 min-h-[200px] pr-1 sm:pr-2 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800">
                       {chatHistory.length === 0 ? (
                         <motion.div 
                           initial={{ opacity: 0, y: 20 }}
@@ -330,9 +316,9 @@ const ChatWidget = () => {
                             </div>
                             
                             <h4 className="text-lg sm:text-xl font-bold text-white mb-2">Hi! I'm Sushil's AI Assistant 👋</h4>
-                            {/* <p className="text-sm text-gray-400 mb-6">
+                            <p className="text-sm text-gray-400 mb-6">
                               Ask me anything about Sushil's experience, projects, skills, and goals!
-                            </p> */}
+                            </p>
                             
                             <div className="space-y-4">
                               <p className="text-xs text-purple-400 font-medium">Quick Questions:</p>

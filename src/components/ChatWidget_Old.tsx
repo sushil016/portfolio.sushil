@@ -18,14 +18,37 @@ const ChatWidget = () => {
   const [chatMode, setChatMode] = useState<'contact' | 'ai'>('ai');
   const [chatHistory, setChatHistory] = useState<ChatMessage[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [quickFacts, setQuickFacts] = useState<string[]>([]);
+  const [isTyping, setIsTyping] = useState(false);
+  const [chatTitle, setChatTitle] = useState('Ask Sushil Anything');
   const [isStreaming, setIsStreaming] = useState(false);
+  const [streamingMessageId, setStreamingMessageId] = useState<string | null>(null);
   
   // Refs
   const abortControllerRef = useRef<AbortController | null>(null);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
+
+  // Load quick facts on component mount
+  useEffect(() => {
+    const loadQuickFacts = async () => {
+      try {
+        const response = await fetch('/api/chat/facts');
+        const data = await response.json();
+        if (data.facts) {
+          setQuickFacts(data.facts);
+        }
+      } catch (error) {
+        console.error('Failed to load quick facts:', error);
+      }
+    };
+
+    loadQuickFacts();
+  }, []);
 
   // Cleanup effect for streams
   useEffect(() => {
     return () => {
+      // Cleanup any active streams
       if (abortControllerRef.current) {
         abortControllerRef.current.abort();
       }
@@ -62,6 +85,7 @@ const ChatWidget = () => {
     };
     
     setChatHistory(prev => [...prev, botMessage]);
+    setStreamingMessageId(botMessageId);
 
     try {
       // Abort any existing stream
@@ -159,6 +183,7 @@ const ChatWidget = () => {
     } finally {
       setIsLoading(false);
       setIsStreaming(false);
+      setStreamingMessageId(null);
       abortControllerRef.current = null;
     }
   };
@@ -188,33 +213,60 @@ const ChatWidget = () => {
 
   const clearChat = () => {
     setChatHistory([]);
+    // Abort any active streaming
     if (abortControllerRef.current) {
       abortControllerRef.current.abort();
       abortControllerRef.current = null;
     }
     setIsStreaming(false);
+    setStreamingMessageId(null);
   };
 
   const toggleExpanded = () => {
     setIsExpanded(!isExpanded);
   };
 
+
+
   const getWidgetClasses = () => {
     if (isExpanded) {
-      // Ensure full viewport height when expanded so inner areas can scroll
-      return "fixed inset-0 z-50 p-4 h-screen";
+      return "fixed inset-0 z-50 p-4";
     }
-    return "w-[calc(100vw-2rem)] sm:w-96 max-w-md h-[85vh] sm:h-[80vh]";
+    return "w-[calc(100vw-2rem)] sm:w-96 max-w-md max-h-[85vh] sm:max-h-[80vh]";
   };
 
   const getChatContainerClasses = () => {
-    // Ensure the container fills available height so inner areas can scroll
-    const baseClasses = "bg-gray-800/95 backdrop-blur-xl border border-gray-700/50 shadow-2xl flex flex-col overflow-hidden rounded-2xl h-full min-h-0";
-    return baseClasses;
+    const baseClasses = "bg-gray-800/95 backdrop-blur-xl border border-gray-700/50 shadow-2xl flex flex-col overflow-hidden";
+    if (isExpanded) {
+      return `${baseClasses} rounded-2xl`;
+    }
+    return `${baseClasses} rounded-2xl`;
+  };
+
+  const ChatContainer = ({ children }: { children: React.ReactNode }) => {
+    return (
+      <div 
+        className={getChatContainerClasses()}
+        onWheel={(e) => {
+          // Ensure scroll events are contained within the chat
+          e.stopPropagation();
+        }}
+      >
+        {children}
+      </div>
+    );
   };
 
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
+    <div 
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50"
+      onWheel={(e) => {
+        // Only stop propagation when chat is open to prevent page scroll interference
+        if (isOpen) {
+          e.stopPropagation();
+        }
+      }}
+    >
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -223,10 +275,16 @@ const ChatWidget = () => {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
             className={getWidgetClasses()}
+            onWheel={(e) => {
+              // Stop propagation to prevent interfering with page scroll
+              e.stopPropagation();
+            }}
+            onClick={(e) => {
+              // Stop propagation to prevent closing when clicking inside
+              e.stopPropagation();
+            }}
           >
-            <div 
-              className={getChatContainerClasses()}
-            >
+            <ChatContainer>
               {/* Enhanced Header */}
               <div className="px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r from-gray-800 to-gray-900 border-b border-gray-700/30">
                 <div className="flex items-center justify-between">
@@ -239,7 +297,7 @@ const ChatWidget = () => {
                     </div>
                     <div>
                       <h3 className="text-white font-bold text-base sm:text-lg">
-                        {chatMode === 'ai' ? 'Ask Sushil Anything' : "Let's Build Together!"}
+                        {chatMode === 'ai' ? chatTitle : "Let's Build Together!"}
                       </h3>
                       <p className="text-gray-400 text-xs sm:text-sm flex items-center gap-1">
                         {chatMode === 'ai' ? (
@@ -301,20 +359,13 @@ const ChatWidget = () => {
               </div>
 
               {/* Content Area */}
-              <div className="flex-1 flex flex-col min-h-0 h-full p-4 sm:p-6 pt-3 sm:pt-4">
+              <div className="flex-1 flex flex-col min-h-0 p-4 sm:p-6 pt-3 sm:pt-4">
                 {chatMode === 'ai' ? (
                   <>
                     {/* AI Chat History */}
                     <div 
-                      className="flex-1 min-h-0 max-h-full overflow-y-auto overscroll-contain mb-3 sm:mb-4 space-y-2 sm:space-y-3 pr-1 sm:pr-2 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800"
-                      data-lenis-prevent="true"
-                      data-lenis-prevent-wheel="true"
-                      data-lenis-prevent-touch="true"
-                      style={{ 
-                        scrollBehavior: 'smooth',
-                        WebkitOverflowScrolling: 'touch',
-                        touchAction: 'pan-y'
-                      }}
+                      ref={chatContainerRef}
+                      className="flex-1 overflow-y-auto mb-3 sm:mb-4 space-y-2 sm:space-y-3 min-h-[200px] pr-1 sm:pr-2 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800"
                     >
                       {chatHistory.length === 0 ? (
                         <motion.div 
@@ -330,17 +381,21 @@ const ChatWidget = () => {
                             </div>
                             
                             <h4 className="text-lg sm:text-xl font-bold text-white mb-2">Hi! I'm Sushil's AI Assistant 👋</h4>
-                            {/* <p className="text-sm text-gray-400 mb-6">
-                              Ask me anything about Sushil's experience, projects, skills, and goals!
-                            </p> */}
+                            <p className="text-sm text-gray-400 mb-6">
+                              I know everything about Sushil's experience, projects, skills, and goals. 
+                              Ask me anything you'd like to know!
+                            </p>
                             
                             <div className="space-y-4">
-                              <p className="text-xs text-purple-400 font-medium">Quick Questions:</p>
-                              <div className="grid grid-cols-1 gap-2 sm:gap-3">
+                              <p className="text-xs text-purple-400 font-medium">Popular Questions:</p>
+                              <div className="grid grid-cols-2 gap-2 sm:gap-3">
                                 {[
-                                  { icon: '💼', label: 'What is your experience?', query: 'Tell me about your work experience' },
-                                  { icon: '🚀', label: 'What is LumaDev?', query: 'Tell me about your agency LumaDev' },
-                                  { icon: '📞', label: 'How to contact you?', query: 'How can I get in touch with you?' }
+                                  { icon: '💼', label: 'Experience', query: 'Tell me about your work experience and internships' },
+                                  { icon: '🛠️', label: 'Skills', query: 'What are your technical skills and expertise?' },
+                                  { icon: '🚀', label: 'LumaDev', query: 'Tell me about your agency LumaDev' },
+                                  { icon: '🎯', label: 'Projects', query: 'What major projects have you worked on?' },
+                                  { icon: '🔮', label: 'Goals', query: 'What are your future goals and plans?' },
+                                  { icon: '📞', label: 'Contact', query: 'How can I get in touch with you?' }
                                 ].map((topic) => (
                                   <motion.button
                                     key={topic.label}
@@ -348,13 +403,39 @@ const ChatWidget = () => {
                                     disabled={isLoading || isStreaming}
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
-                                    className="bg-gray-800/50 hover:bg-gray-700/70 text-gray-300 px-3 py-2.5 rounded-lg border border-gray-600/30 hover:border-purple-500/50 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-xs sm:text-sm flex items-center gap-2"
+                                    className="bg-gray-800/50 hover:bg-gray-700/70 text-gray-300 px-3 py-2.5 rounded-lg border border-gray-600/30 hover:border-purple-500/50 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-xs sm:text-sm flex flex-col items-center gap-1"
                                   >
                                     <span className="text-sm">{topic.icon}</span>
                                     <span className="font-medium">{topic.label}</span>
                                   </motion.button>
                                 ))}
                               </div>
+                              
+                              {/* Quick Facts Display */}
+                              {quickFacts.length > 0 && (
+                                <motion.div 
+                                  initial={{ opacity: 0 }}
+                                  animate={{ opacity: 1 }}
+                                  transition={{ delay: 0.5 }}
+                                  className="mt-6 pt-4 border-t border-gray-600/30"
+                                >
+                                  <p className="text-xs text-purple-400 font-medium mb-3">Quick Facts About Sushil:</p>
+                                  <div className="space-y-2 text-xs text-gray-300">
+                                    {quickFacts.slice(1, 4).map((fact, index) => (
+                                      <motion.div 
+                                        key={index}
+                                        initial={{ opacity: 0, x: -10 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: 0.7 + index * 0.1 }}
+                                        className="flex items-start gap-2 text-left"
+                                      >
+                                        <span className="text-purple-400 mt-0.5 flex-shrink-0">✨</span>
+                                        <span className="leading-relaxed">{fact}</span>
+                                      </motion.div>
+                                    ))}
+                                  </div>
+                                </motion.div>
+                              )}
                             </div>
                           </div>
                         </motion.div>
@@ -414,6 +495,7 @@ const ChatWidget = () => {
                               </div>
                             </motion.div>
                           ))}
+
                         </>
                       )}
                     </div>
@@ -427,7 +509,7 @@ const ChatWidget = () => {
                               type="text"
                               value={message}
                               onChange={(e) => setMessage(e.target.value)}
-                              placeholder={isLoading || isStreaming ? "Processing your question..." : "Ask me anything about Sushil..."}
+                              placeholder={isLoading || isStreaming ? "Processing your question..." : "Ask me anything about Sushil's experience..."}
                               className="w-full p-3 sm:p-4 pr-12 bg-gray-800/70 text-white rounded-xl border border-gray-600/50 focus:border-purple-500/70 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all text-sm placeholder-gray-400 disabled:opacity-50"
                               disabled={isLoading || isStreaming}
                               required
@@ -544,7 +626,7 @@ const ChatWidget = () => {
                   </>
                 )}
               </div>
-            </div>
+            </ChatContainer>
           </motion.div>
         )}
       </AnimatePresence>
