@@ -8,7 +8,9 @@ const navItems = [
   { name: 'About', href: '#about' },
   { name: 'Technical Skills', href: '#skills' },
   { name: 'Experience', href: '#experience' },
+  { name: 'TIL', href: '#til' },
   { name: 'Projects', href: '#projects' },
+  { name: 'Blog', href: '/blog' },
 ]
 
 interface props  {

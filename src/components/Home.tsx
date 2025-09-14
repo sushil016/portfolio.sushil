@@ -5,6 +5,7 @@ import { ThreeDCardDemo } from "./profile";
 import Project from "./Project";
 import Skills from "./Skills";
 import Experience from "./Experience";
+import TILSection from "./TILSection";
 import { Suspense } from "react";
 import ProfileSkeleton from "./ProfileSkeleton";
 import DockSkeleton from "./DockSkeleton";
@@ -75,11 +76,13 @@ const Home: React.FC<HomeProps> = ({ setBgVariant, setCursorText }) => {
           </Suspense>
         </div>
       </div>
+      <TILSection />
       <AboutMe />
       <div className="bg-three h-auto ">
         <Skills />
       </div>
       <Experience />
+      
       <Project />
     </>
   );

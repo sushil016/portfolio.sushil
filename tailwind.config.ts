@@ -63,7 +63,8 @@ const config: Config = {
   		},
 
 		fontFamily: {
-			'space-grotesk': ["Space Grotesk", 'sans-serif'],
+			'space-grotesk': ['var(--font-space-grotesk)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+			'sans': ['var(--font-space-grotesk)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
 		  },
   	}
   },
